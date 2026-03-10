@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -874,9 +874,205 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
   .hero-logo-col{display:none}
 }
 
+/* ─── SPLASH SCREEN ─── */
+#splash{
+  position:fixed;inset:0;z-index:9999;
+  background:#0b1929;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0;
+  pointer-events:all;
+}
+#splash.hide{
+  animation:splashFadeOut 0.9s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes splashFadeOut{
+  0%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.04)}
+}
+.splash-svg-wrap{
+  position:relative;width:200px;height:300px;
+}
+.splash-logo-img{
+  width:200px;height:300px;
+  opacity:0;
+  animation:spRibbonIn 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards;
+  transform-origin:center;
+  filter:drop-shadow(0 0 18px rgba(26,170,155,0.5)) drop-shadow(0 0 35px rgba(123,111,206,0.35));
+}
+/* Ribbon */
+.sp-ribbon{
+  opacity:0;
+  animation:spRibbonIn 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards;
+  transform-origin:center;
+}
+@keyframes spRibbonIn{
+  0%{opacity:0;transform:scale(0.4) rotate(-15deg)}
+  70%{opacity:1;transform:scale(1.08) rotate(2deg)}
+  100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+/* DNA strands draw in */
+.sp-dna-strand{
+  stroke-dasharray:400;
+  stroke-dashoffset:400;
+  animation:spDrawDNA 1.2s ease 0.7s forwards;
+}
+.sp-dna-strand-2{
+  stroke-dasharray:400;
+  stroke-dashoffset:400;
+  animation:spDrawDNA 1.2s ease 0.9s forwards;
+}
+@keyframes spDrawDNA{
+  to{stroke-dashoffset:0}
+}
+/* Rungs fade in */
+.sp-rung{
+  opacity:0;
+  animation:spRungPop 0.3s ease forwards;
+}
+.sp-rung:nth-child(1){animation-delay:1.0s}
+.sp-rung:nth-child(2){animation-delay:1.1s}
+.sp-rung:nth-child(3){animation-delay:1.2s}
+.sp-rung:nth-child(4){animation-delay:1.3s}
+.sp-rung:nth-child(5){animation-delay:1.4s}
+.sp-rung:nth-child(6){animation-delay:1.5s}
+@keyframes spRungPop{to{opacity:1}}
+/* URL text */
+.splash-url{
+  font-family:'Lato',sans-serif;
+  font-size:1.05rem;letter-spacing:.12em;
+  color:rgba(26,170,155,0.9);
+  text-transform:lowercase;
+  opacity:0;
+  margin-top:1.5rem;
+  animation:spUrlIn 0.7s ease 1.6s forwards;
+}
+@keyframes spUrlIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+/* Tagline */
+.splash-tagline{
+  font-family:'Playfair Display',serif;
+  font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  margin-top:.5rem;
+  opacity:0;
+  animation:spUrlIn 0.7s ease 1.9s forwards;
+}
+/* Glow pulse on ribbon */
+@keyframes spGlow{
+  0%,100%{filter:drop-shadow(0 0 4px rgba(26,170,155,.2))}
+  50%{filter:drop-shadow(0 0 22px rgba(26,170,155,.7)) drop-shadow(0 0 40px rgba(123,111,206,.4))}
+}
+.sp-ribbon-path{
+  animation:spGlow 2s ease-in-out 1.2s infinite;
+}
+/* Particle dots */
+.sp-particle{
+  opacity:0;
+  animation:spParticle 1s ease forwards;
+}
+.sp-particle:nth-child(1){animation-delay:1.3s}
+.sp-particle:nth-child(2){animation-delay:1.45s}
+.sp-particle:nth-child(3){animation-delay:1.6s}
+@keyframes spParticle{
+  0%{opacity:0;transform:scale(0)}
+  60%{opacity:1;transform:scale(1.4)}
+  100%{opacity:.7;transform:scale(1)}
+}
+
+/* ─── ADDON REQUEST STYLE ─── */
+.addon-request{
+  font-size:.72rem;font-weight:600;letter-spacing:.06em;
+  color:var(--teal);background:rgba(26,170,155,.08);
+  border:1px solid rgba(26,170,155,.25);border-radius:20px;
+  padding:.2rem .7rem;display:inline-block;font-family:'Lato',sans-serif;
+  text-transform:uppercase;
+}
+
+/* ─── SCROLL REVEAL ANIMATIONS ─── */
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes revealLeft{
+  from{opacity:0;transform:translateX(-40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes revealRight{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes revealScale{
+  from{opacity:0;transform:scale(0.92)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes revealFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* Elements start hidden */
+.reveal{
+  opacity:0;
+  will-change:opacity,transform;
+}
+.reveal.visible{
+  animation:revealUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.reveal-left.visible{
+  animation:revealLeft 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.reveal-right.visible{
+  animation:revealRight 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.reveal-scale.visible{
+  animation:revealScale 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.reveal-fade.visible{
+  animation:revealFade 0.8s ease forwards;
+}
+/* Stagger children */
+.reveal-stagger > *{
+  opacity:0;
+  will-change:opacity,transform;
+  transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  transform:translateY(30px);
+}
+.reveal-stagger.visible > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:0.05s}
+.reveal-stagger.visible > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.15s}
+.reveal-stagger.visible > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.25s}
+.reveal-stagger.visible > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.35s}
+.reveal-stagger.visible > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.45s}
+.reveal-stagger.visible > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.55s}
+
+/* ─── FULL-PAGE SECTIONS ─── */
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:6rem 3rem;
+}
+section > .section-inner{
+  width:100%;
+}
+/* exceptions that shouldn't be full-page */
+.spec-banner{min-height:420px}
+.disclaimer-bg{min-height:unset}
+@media(max-width:900px){
+  section{min-height:unset;padding:4rem 1.5rem}
+}
+
 </style>
 </head>
 <body>
+
+<!-- ══ SPLASH SCREEN ══════════════════════════════════════════════════════ -->
+<div id="splash" aria-hidden="true">
+  <div class="splash-url">www.cancerclaritymd.com</div>
+  <div class="splash-tagline">Independent Oncology · Second Opinions</div>
+</div>
+<!-- ══ END SPLASH ══════════════════════════════════════════════════════════ -->
 
 <!-- NAV -->
 <nav>
@@ -904,80 +1100,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
         <a href="#how" class="btn-outline">Learn How It Works</a>
       </div>
     </div>
-    <div class="hero-logo-col">
-      <!-- Animated DNA / Ribbon Logo -->
-      <div class="dna-logo-wrap" id="dnaLogoWrap">
-        <svg class="dna-svg" viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Ribbon body (cancer awareness ribbon shape) -->
-          <g class="ribbon-group">
-            <!-- Main ribbon loop left -->
-            <path class="ribbon-left" d="M100 130 C60 100 30 60 50 30 C65 10 85 8 100 20 C115 8 135 10 150 30 C170 60 140 100 100 130Z" 
-                  stroke="url(#ribbonGrad)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Ribbon tail left -->
-            <path class="ribbon-tail-l" d="M100 130 C85 155 70 180 60 220" 
-                  stroke="url(#ribbonGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <!-- Ribbon tail right -->
-            <path class="ribbon-tail-r" d="M100 130 C115 155 130 180 140 220" 
-                  stroke="url(#ribbonGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          </g>
 
-          <!-- DNA helix emerging from ribbon bottom-left tail -->
-          <g class="dna-left">
-            <!-- Strand A (left) -->
-            <path class="dna-strand-a-l" d="M60 220 C55 230 65 242 60 254 C55 266 65 278 60 290 C55 302 65 314 60 326"
-                  stroke="#1aaa9b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <!-- Strand B (left) -->
-            <path class="dna-strand-b-l" d="M72 225 C77 235 67 247 72 259 C77 271 67 283 72 295 C77 307 67 319 72 331"
-                  stroke="#d4a843" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <!-- Cross rungs left -->
-            <line class="dna-rung" x1="60" y1="237" x2="72" y2="236" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="60" y1="254" x2="72" y2="259" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="60" y1="271" x2="72" y2="271" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="60" y1="288" x2="72" y2="283" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="60" y1="305" x2="72" y2="307" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="60" y1="322" x2="72" y2="319" stroke="rgba(26,170,155,.4)" stroke-width="1.5"/>
-          </g>
-
-          <!-- DNA helix emerging from ribbon bottom-right tail -->
-          <g class="dna-right">
-            <!-- Strand A (right) -->
-            <path class="dna-strand-a-r" d="M128 220 C123 230 133 242 128 254 C123 266 133 278 128 290 C123 302 133 314 128 326"
-                  stroke="#1aaa9b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <!-- Strand B (right) -->
-            <path class="dna-strand-b-r" d="M140 225 C145 235 135 247 140 259 C145 271 135 283 140 295 C145 307 135 319 140 331"
-                  stroke="#d4a843" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <!-- Cross rungs right -->
-            <line class="dna-rung" x1="128" y1="237" x2="140" y2="236" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="128" y1="254" x2="140" y2="259" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="128" y1="271" x2="140" y2="271" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="128" y1="288" x2="140" y2="283" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="128" y1="305" x2="140" y2="307" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-            <line class="dna-rung" x1="128" y1="322" x2="140" y2="319" stroke="rgba(212,168,67,.4)" stroke-width="1.5"/>
-          </g>
-
-          <!-- Glowing nodes at key intersections -->
-          <circle class="glow-node" cx="100" cy="20" r="4" fill="#d4a843" opacity="0.9"/>
-          <circle class="glow-node" cx="50" cy="30" r="3" fill="#1aaa9b" opacity="0.7"/>
-          <circle class="glow-node" cx="150" cy="30" r="3" fill="#1aaa9b" opacity="0.7"/>
-          <circle class="glow-node" cx="100" cy="130" r="5" fill="#fff" opacity="0.9"/>
-
-          <!-- Wordmark below -->
-          <text x="100" y="360" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="rgba(255,255,255,.85)" letter-spacing="1">CANCER CLARITY MD</text>
-
-          <defs>
-            <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1aaa9b"/>
-              <stop offset="50%" stop-color="#7b6fce"/>
-              <stop offset="100%" stop-color="#d4a843"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-        </svg>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1008,7 +1131,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 3. WHY SECOND OPINION -->
 <section class="why-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Why Patients Seek a Second Opinion</div>
     <h2 class="section-h2">A cancer diagnosis often raises important questions.</h2>
     <p class="section-lead">Cancer Clarity MD provides independent specialist review so patients and families can move forward with clarity and confidence.</p>
@@ -1054,7 +1177,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 5. HOW IT WORKS -->
 <section id="how" class="how-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">The Process</div>
     <h2 class="section-h2">How It Works</h2>
     <p class="section-lead">Five steps from submission to consultation. Turnaround begins once records are received and confirmed complete.</p>
@@ -1104,7 +1227,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 6. CONDITIONS REVIEWED -->
 <section id="conditions">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Conditions Reviewed</div>
     <h2 class="section-h2">Areas of Expert Review</h2>
     <p class="section-lead">Specialist-led second opinions across the full spectrum of hematologic and oncologic conditions.</p>
@@ -1142,7 +1265,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 7. WHY CANCER CLARITY MD -->
 <section id="why" class="whyus-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" style="color:rgba(26,170,155,.8)">Why Cancer Clarity MD</div>
     <h2 class="section-h2 whyus-section-h2">What sets us apart</h2>
     <p class="section-lead whyus-lead" style="margin-bottom:2.5rem">Designed around patients - not institutions.</p>
@@ -1178,7 +1301,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 8. AI + CONCIERGE -->
 <section id="ai">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Technology That Supports Expert Care</div>
     <h2 class="section-h2">Technology that supports expert care</h2>
     <p class="section-lead">Cancer Clarity MD operates through an AI-assisted concierge platform designed to simplify complex consultations. All clinical interpretation is performed by the reviewing physician.</p>
@@ -1220,7 +1343,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- WHAT YOUR REPORT INCLUDES -->
 <section class="report-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Your Second Opinion Report</div>
     <h2 class="section-h2">What your report includes</h2>
     <p class="section-lead">Clear, structured, and easy to share with your care team.</p>
@@ -1254,7 +1377,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 9. EMERGING THERAPIES -->
 <section id="emerging">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Emerging Treatments &amp; Clinical Trials</div>
     <h2 class="section-h2">Cancer treatment evolves rapidly. Your review reflects it.</h2>
     <p class="section-lead">Every consultation considers current evidence-based treatments, targeted therapies, and clinical trial opportunities. When appropriate, patients may also receive information about medication assistance programs.</p>
@@ -1303,7 +1426,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- 11. PRICING -->
 <section id="pricing">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Consultation Services</div>
     <h2 class="section-h2">Consultation options</h2>
     <p class="section-lead">Patients may choose the level of consultation that best meets their needs. No hidden fees.</p>
@@ -1336,17 +1459,17 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
     </div>
     <div class="addons">
       <span class="addon-label">Add-On Services</span>
-      <div class="addon-item"><span class="addon-plus">+</span> Expedited Review <strong>$250</strong></div>
-      <div class="addon-item"><span class="addon-plus">+</span> Follow-Up Consult <strong>$195</strong></div>
-      <div class="addon-item"><span class="addon-plus">+</span> Extended Q&amp;A Window <strong>$249</strong></div>
-      <div class="addon-item"><span class="addon-plus">+</span> Additional Record Review <strong>$149</strong></div>
+      <div class="addon-item"><span class="addon-plus">+</span> Expedited Review <strong class="addon-request">Available on request</strong></div>
+      <div class="addon-item"><span class="addon-plus">+</span> Follow-Up Consult <strong class="addon-request">Available on request</strong></div>
+      <div class="addon-item"><span class="addon-plus">+</span> Extended Q&amp;A Window <strong class="addon-request">Available on request</strong></div>
+      <div class="addon-item"><span class="addon-plus">+</span> Additional Record Review <strong class="addon-request">Available on request</strong></div>
     </div>
   </div>
 </section>
 
 <!-- 12. MISSION -->
 <section class="mission-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="mission-inner">
       <div class="section-label" style="justify-content:center;display:flex">Our Mission</div>
       <div class="mission-divider"></div>
@@ -1359,7 +1482,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- CC MOBILE APP -->
 <section class="app-bg" id="app">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="app-grid">
       <div>
         <div class="section-label" style="color:rgba(26,170,155,.8)">CC Mobile App</div>
@@ -1402,7 +1525,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- FAQ -->
 <section id="faq">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Frequently Asked Questions</div>
     <h2 class="section-h2">Common questions</h2>
     <p class="section-lead">Everything patients and families ask before getting started.</p>
@@ -1453,7 +1576,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
           <span class="faq-acc-q">How long does the review take?</span>
           <span class="faq-acc-chevron"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="faq-acc-body"><div class="faq-acc-body-inner">Most written reports are delivered within 48 to 72 hours after all records are received and confirmed complete. Expedited review (within 24 hours) is available as an add-on for $250. The video consultation, if included, is scheduled after the written report is complete at a time that works for you.</div></div>
+        <div class="faq-acc-body"><div class="faq-acc-body-inner">Most written reports are delivered within 48 to 72 hours after all records are received and confirmed complete. Expedited review (within 24 hours) is available as an add-on upon request. The video consultation, if included, is scheduled after the written report is complete at a time that works for you.</div></div>
       </div>
       <div class="faq-acc-item">
         <button class="faq-acc-btn" onclick="toggleFaq(this)">
@@ -1485,14 +1608,14 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
           <span class="faq-acc-q">What payment methods are accepted?</span>
           <span class="faq-acc-chevron"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="faq-acc-body"><div class="faq-acc-body-inner">Payment is processed securely online. Major credit and debit cards are accepted. International payments are also accepted. Payment is collected after intake form submission and prior to the start of the review. If you have questions about payment, please contact us at contact@cancerclaritymd.com.</div></div>
+        <div class="faq-acc-body"><div class="faq-acc-body-inner">Payment is processed securely online. Major credit and debit cards are accepted. International payments are also accepted. Payment is collected after intake form submission and prior to the start of the review. If you have questions about payment, please contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab9b5b4aebbb9ae9ab9bbb4b9bfa8b9b6bba8b3aea3b7bef4b9b5b7">[email&#160;protected]</a>.</div></div>
       </div>
       <div class="faq-acc-item">
         <button class="faq-acc-btn" onclick="toggleFaq(this)">
           <span class="faq-acc-q">What is the refund policy?</span>
           <span class="faq-acc-chevron"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="faq-acc-body"><div class="faq-acc-body-inner">If the specialist determines that your case falls outside the scope of our service before the review begins, you will receive a full refund. Once the specialist review has commenced, fees are non-refundable. If you have concerns about your case or the service, please contact us directly at contact@cancerclaritymd.com.</div></div>
+        <div class="faq-acc-body"><div class="faq-acc-body-inner">If the specialist determines that your case falls outside the scope of our service before the review begins, you will receive a full refund. Once the specialist review has commenced, fees are non-refundable. If you have concerns about your case or the service, please contact us directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b4844455f4a485f6b484a45484e5948474a59425f52464f05484446">[email&#160;protected]</a>.</div></div>
       </div>
     </div>
 
@@ -1519,7 +1642,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- SAMPLE REPORT SECTION -->
 <section id="sample-report" class="sample-report-section">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label">Sample Report</div>
     <h2 class="section-h2">See What a Second Opinion Looks Like</h2>
     <p class="section-lead">The following is an example of the written second opinion report patients receive. All names and case details are illustrative only.</p>
@@ -1624,7 +1747,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 
 <!-- ENHANCED PATIENT INTAKE FORM + CONSENT -->
 <section id="intake" class="form-bg">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="form-grid">
       <div>
         <div class="section-label" style="color:rgba(26,170,155,.8)">Get Started</div>
@@ -1663,7 +1786,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
           <div class="form-success-icon">&#10003;</div>
           <h3>Request Submitted</h3>
           <p>Thank you. We will contact you within one business day to confirm receipt and provide instructions for secure record submission.</p>
-          <p style="margin-top:.75rem"><strong>contact@cancerclaritymd.com</strong></p>
+          <p style="margin-top:.75rem"><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e0d01001a0f0d1a2e0d0f000d0b1c0d020f1c071a17030a400d0103">[email&#160;protected]</a></strong></p>
         </div>
 
         <!-- STEP 1: Patient Information -->
@@ -1860,7 +1983,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
         <div class="footer-logo"><span class="footer-logo-dot"></span>Cancer Clarity MD</div>
         <p>Independent oncology second opinions, cancer expertise. Wherever you are. Specialist-led second opinions in hematology and oncology from U.S. board-certified physicians.</p>
         <div class="footer-contact">
-          <a href="mailto:contact@cancerclaritymd.com">contact@cancerclaritymd.com</a><br/>
+          <a href="/cdn-cgi/l/email-protection#20434f4e544143546043414e434552434c41524954594d440e434f4d"><span class="__cf_email__" data-cfemail="a7c4c8c9d3c6c4d3e7c4c6c9c4c2d5c4cbc6d5ced3decac389c4c8ca">[email&#160;protected]</span></a><br/>
           www.cancerclaritymd.com
         </div>
       </div>
@@ -1892,7 +2015,7 @@ footer{background:#07111e;padding:3.5rem 3rem 2rem}
 </footer>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── FAQ Accordion ──────────────────────────────────────────────────────────
 function toggleFaq(btn) {
   const item = btn.closest('.faq-acc-item');
@@ -1956,22 +2079,74 @@ function submitIntake2() {
     alert('Please confirm your consent before submitting.');
     return;
   }
-  document.querySelectorAll('#panel1,#panel2,#panel3,#panel4,#panel5').forEach(p => { if(p) p.style.display='none'; });
-  const bar = document.querySelector('.intake-steps-bar');
-  if (bar) bar.style.display = 'none';
-  const succ = document.getElementById('formSuccess');
-  if (succ) succ.style.display = 'block';
-  document.getElementById('intakeFormWrap').scrollIntoView({behavior:'smooth', block:'start'});
+  document.querySelectorAll('#panel1,#panel2,#panel3,#panel4,#panel5').forEach(p => p.classList.remove('active'));
+  alert('Thank you. Your case review request has been submitted. Our team will be in touch shortly.');
 }
 
-// Open first FAQ item in each accordion on load
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.faq-accordion').forEach(function(acc) {
-    const first = acc.querySelector('.faq-acc-item');
-    if (first) first.classList.add('open');
+// ── Splash Screen ────────────────────────────────────────────────────────
+(function() {
+  const splash = document.getElementById('splash');
+  if (!splash) return;
+  // Dismiss after animation completes (~2.8s) + brief hold
+  setTimeout(function() {
+    splash.classList.add('hide');
+    splash.addEventListener('animationend', function() {
+      splash.style.display = 'none';
+    }, { once: true });
+  }, 2800);
+  // Also allow click to skip
+  splash.addEventListener('click', function() {
+    splash.classList.add('hide');
+    splash.addEventListener('animationend', function() {
+      splash.style.display = 'none';
+    }, { once: true });
   });
-});
-</script>
+})();
 
+// ── Scroll Reveal Observer ────────────────────────────────────────────────
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, .reveal-stagger').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Add staggered reveal to major grids
+  document.querySelectorAll('.why-grid, .steps-timeline, .conditions-grid, .whyus-grid, .pricing-grid, .emerging-grid, .app-features, .faq-grid').forEach(grid => {
+    grid.classList.add('reveal-stagger');
+    observer.observe(grid);
+  });
+
+  // Add individual reveal to cards within grids
+  document.querySelectorAll('.why-card, .price-card, .addon-item, .whyus-cell, .condition-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + 's';
+  });
+
+  // Add reveal to section headings
+  document.querySelectorAll('.section-h2, .section-label, .section-lead').forEach(el => {
+    el.classList.add('reveal-fade');
+    observer.observe(el);
+  });
+
+  // Reveal add-on items with pop
+  document.querySelectorAll('.addon-item').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.animationDelay = (0.1 + i * 0.1) + 's';
+    observer.observe(el);
+  });
+})();
+
+</script>
 </body>
 </html>
