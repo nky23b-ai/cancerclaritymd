@@ -1,0 +1,676 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Options | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.25;
+            color: var(--navy);
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        .bg-light { background-color: var(--bg); }
+        .bg-alt { background-color: var(--bg-alt); }
+        .bg-dark { background-color: var(--bg-dark); color: var(--white); }
+        .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark p { color: var(--white); }
+        .bg-dark p { opacity: 0.8; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 400;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary { background-color: var(--teal); color: white; }
+        .btn-primary:hover { background-color: var(--teal-dark); }
+        .btn-outline { background: transparent; border-color: var(--teal); color: var(--teal); }
+        .btn-outline:hover { background: var(--teal); color: white; }
+        .btn-white { background: white; color: var(--navy); }
+        .btn-white:hover { background: var(--bg-alt); }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            z-index: 1000; 
+            padding: 20px 0;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar.scrolled .logo { color: var(--navy); }
+        
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: white; }
+        .navbar.scrolled .nav-link { color: #4B5563; }
+        .navbar.scrolled .nav-link:hover { color: var(--navy); }
+        .nav-link.active { color: var(--teal); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .navbar.scrolled .mobile-menu-btn { color: var(--navy); }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 1001;
+            padding: 80px 24px 24px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://gw-tk.tanka.ai/npc/v2/file/f7bd6a7c-7356-4623-b81f-139dcb11c1de');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(12, 26, 39, 0.80);
+            z-index: -1;
+        }
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Service Cards */
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .service-desc {
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .service-includes {
+            margin-top: auto;
+        }
+        .service-includes h4 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        .checklist {
+            list-style: none;
+        }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .checklist i {
+            color: var(--teal);
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Note Section */
+        .fee-note {
+            background: var(--bg-alt);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border: 1px solid var(--border);
+        }
+        .fee-note p {
+            margin: 0;
+            color: var(--navy);
+            font-weight: 400;
+        }
+        .fee-note a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .fee-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* What's Included Grid */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .included-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .included-item i {
+            color: var(--teal);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .included-item span {
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 5rem 0 2.5rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-col h4 {
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .footer-legal a:hover {
+            color: white;
+        }
+        .footer-disclaimer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link active">Consultation Options</a>
+                <a href="#" class="nav-link">For Physicians</a>
+                <a href="#" class="nav-link">Patient Education</a>
+                <a href="#" class="nav-link">FAQ</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Start Case Review</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenuBtn">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link active">Consultation Options</a>
+        <a href="#" class="nav-link">For Physicians</a>
+        <a href="#" class="nav-link">Patient Education</a>
+        <a href="#" class="nav-link">Screening Guidelines</a>
+        <a href="#" class="nav-link">FAQ</a>
+        <a href="#" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero bg-dark">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="eyebrow">CONSULTATION OPTIONS</span>
+            <h1>Our Services</h1>
+            <p>Each case is reviewed individually by a U.S. board-certified specialist.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="grid-2">
+                <!-- Card 1 -->
+                <div class="card service-card">
+                    <h3>Written Second Opinion</h3>
+                    <p class="service-desc">A comprehensive written review of your submitted medical records, conducted by a U.S. board-certified hematologist or oncologist.</p>
+                    
+                    <div class="service-includes">
+                        <h4>Includes</h4>
+                        <ul class="checklist">
+                            <li><i data-lucide="check"></i> AI-assisted record organization</li>
+                            <li><i data-lucide="check"></i> Review by board-certified specialist</li>
+                            <li><i data-lucide="check"></i> Detailed written report</li>
+                            <li><i data-lucide="check"></i> Answers to your specific questions</li>
+                            <li><i data-lucide="check"></i> Delivered within 48 to 72 hours of record confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card service-card">
+                    <h3>Written Report + Video Consultation</h3>
+                    <p class="service-desc">Includes the written second opinion plus a secure video consultation with the reviewing physician to discuss findings directly.</p>
+                    
+                    <div class="service-includes">
+                        <h4>Includes</h4>
+                        <ul class="checklist">
+                            <li><i data-lucide="check"></i> Everything in the Written Second Opinion</li>
+                            <li><i data-lucide="check"></i> 45-minute secure video consultation</li>
+                            <li><i data-lucide="check"></i> Direct discussion of findings and questions</li>
+                            <li><i data-lucide="check"></i> Video recording provided upon request</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fees note -->
+            <div style="margin-top: 3.5rem; border-top: 1px solid var(--border); padding-top: 2.5rem; max-width: 640px; margin-left: auto; margin-right: auto; text-align: center;">
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.9;">
+                    Fees are determined on a case by case basis, reflecting the time and depth of analysis required for each consultation. As a general reference, consultations typically begin at <span style="color: var(--text);">$250 for international patients</span> and <span style="color: var(--text);">$500 for patients based in the United States.</span> For additional information, please contact <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); text-decoration: none;">contact@cancerclaritymd.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Every Review Includes -->
+    <section class="bg-alt">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>What Every Review Includes</h2>
+                <p>Standard features provided with all our consultation services.</p>
+            </div>
+
+            <div class="included-grid">
+                <div class="included-item">
+                    <i data-lucide="microscope"></i>
+                    <span>Clinical trial eligibility assessment</span>
+                </div>
+                <div class="included-item">
+                    <i data-lucide="dna"></i>
+                    <span>Genomic and molecular testing review (NGS)</span>
+                </div>
+                <div class="included-item">
+                    <i data-lucide="pill"></i>
+                    <span>Medication access guidance where applicable</span>
+                </div>
+                <div class="included-item">
+                    <i data-lucide="shield-check"></i>
+                    <span>HIPAA-compliant secure platform</span>
+                </div>
+                <div class="included-item">
+                    <i data-lucide="languages"></i>
+                    <span>Available in English, Hindi, Urdu, and other languages</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#" class="btn btn-primary">Start Your Case Review</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem; display: block;">Cancer Clarity MD.</div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-bottom: 1.5rem; max-width: 250px;">Independent Oncology Advisory</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); text-decoration: none; font-size: 0.875rem;">contact@cancerclaritymd.com</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="#">For Physicians</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="#">Patient Education</a></li>
+                        <li><a href="#">Screening Guidelines</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Action</h4>
+                    <a href="#" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Start Case Review</a>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="apple" style="width: 14px; height: 14px; margin-right: 4px;"></i> iOS</a>
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="play" style="width: 14px; height: 14px; margin-right: 4px;"></i> Android</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cancer Clarity MD. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                Cancer Clarity MD provides independent medical advisory services. Our reviews are for informational and educational purposes and do not establish a primary doctor-patient relationship. We do not prescribe medication or provide direct treatment. Always consult with your primary oncology team before making changes to your treatment plan.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

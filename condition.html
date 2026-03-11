@@ -1,0 +1,711 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Covered | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.25;
+            color: var(--navy);
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        .bg-light { background-color: var(--bg); }
+        .bg-alt { background-color: var(--bg-alt); }
+        .bg-dark { background-color: var(--bg-dark); color: var(--white); }
+        .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark p { color: var(--white); }
+        .bg-dark p { opacity: 0.8; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 400;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary { background-color: var(--teal); color: white; }
+        .btn-primary:hover { background-color: var(--teal-dark); }
+        .btn-outline { background: transparent; border-color: var(--teal); color: var(--teal); }
+        .btn-outline:hover { background: var(--teal); color: white; }
+        .btn-white { background: white; color: var(--navy); }
+        .btn-white:hover { background: var(--bg-alt); }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            z-index: 1000; 
+            padding: 20px 0;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar.scrolled .logo { color: var(--navy); }
+        
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: white; }
+        .navbar.scrolled .nav-link { color: #4B5563; }
+        .navbar.scrolled .nav-link:hover { color: var(--navy); }
+        .nav-link.active { color: var(--teal); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .navbar.scrolled .mobile-menu-btn { color: var(--navy); }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 1001;
+            padding: 80px 24px 24px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://gw-tk.tanka.ai/npc/v2/file/f7bd6a7c-7356-4623-b81f-139dcb11c1de');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(12, 26, 39, 0.80);
+            z-index: -1;
+        }
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 992px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Condition Lists */
+        .condition-category {
+            margin-bottom: 4rem;
+        }
+        .condition-category:last-child {
+            margin-bottom: 0;
+        }
+        .condition-category h2 {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .condition-category h2 i {
+            color: var(--teal);
+        }
+        
+        .condition-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .condition-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        .condition-item:hover {
+            border-color: var(--teal);
+            box-shadow: 0 2px 8px rgba(26, 170, 155, 0.1);
+            transform: translateX(4px);
+        }
+        .condition-item i {
+            color: var(--teal);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        .condition-item span {
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-weight: 400;
+        }
+
+        /* Genomic Testing Box */
+        .genomic-box {
+            background: var(--navy);
+            color: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .genomic-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(26,170,155,0.15) 0%, rgba(12,26,39,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .genomic-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        .genomic-content h3 {
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .genomic-content p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+        .genomic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .genomic-tag {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 5rem 0 2.5rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-col h4 {
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .footer-legal a:hover {
+            color: white;
+        }
+        .footer-disclaimer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link active">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="#" class="nav-link">For Physicians</a>
+                <a href="#" class="nav-link">Patient Education</a>
+                <a href="#" class="nav-link">FAQ</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Start Case Review</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenuBtn">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link active">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="#" class="nav-link">For Physicians</a>
+        <a href="#" class="nav-link">Patient Education</a>
+        <a href="#" class="nav-link">Screening Guidelines</a>
+        <a href="#" class="nav-link">FAQ</a>
+        <a href="#" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero bg-dark">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="eyebrow">EXPERTISE</span>
+            <h1>Conditions Covered</h1>
+            <p>Our board-certified specialists provide expert reviews across a wide spectrum of oncological and hematological diagnoses.</p>
+        </div>
+    </section>
+
+    <!-- Conditions Content -->
+    <section class="bg-light">
+        <div class="container">
+            
+            <!-- Solid Tumors -->
+            <div class="condition-category">
+                <h2><i data-lucide="activity"></i> Solid Tumors</h2>
+                <ul class="condition-list">
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Breast Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Lung Cancer (NSCLC & SCLC)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Colorectal Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Prostate Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Pancreatic Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Gastric & Esophageal Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Ovarian Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Uterine/Endometrial Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Cervical Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Kidney (Renal Cell) Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Bladder Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Melanoma</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Head and Neck Cancers</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Thyroid Cancer</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Sarcomas (Bone & Soft Tissue)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Brain Tumors (Glioblastoma, etc.)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Liver Cancer (HCC)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Biliary Tract Cancers</span></li>
+                </ul>
+            </div>
+
+            <!-- Hematologic Malignancies -->
+            <div class="condition-category">
+                <h2><i data-lucide="droplet"></i> Hematologic Malignancies</h2>
+                <ul class="condition-list">
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Non-Hodgkin Lymphoma (NHL)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Hodgkin Lymphoma</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Multiple Myeloma</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Chronic Lymphocytic Leukemia (CLL)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Chronic Myeloid Leukemia (CML)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Acute Myeloid Leukemia (AML)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Acute Lymphoblastic Leukemia (ALL)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Myelodysplastic Syndromes (MDS)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Myeloproliferative Neoplasms (MPN)</span></li>
+                </ul>
+            </div>
+
+            <!-- Genetic Syndromes -->
+            <div class="condition-category">
+                <h2><i data-lucide="git-branch"></i> Genetic & Hereditary Syndromes</h2>
+                <ul class="condition-list">
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>BRCA1/BRCA2 Mutations</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Lynch Syndrome</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Li-Fraumeni Syndrome</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Familial Adenomatous Polyposis (FAP)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Other Hereditary Cancer Predispositions</span></li>
+                </ul>
+            </div>
+
+            <!-- Benign Hematology -->
+            <div class="condition-category">
+                <h2><i data-lucide="heart-pulse"></i> Benign Hematology</h2>
+                <ul class="condition-list">
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Iron Deficiency Anemia</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Anemia of Chronic Disease</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Hemolytic Anemias (Autoimmune, Hereditary)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Sickle Cell Disease & Hemoglobinopathies</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Thalassemia</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Immune Thrombocytopenia (ITP)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Thrombotic Thrombocytopenic Purpura (TTP)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Coagulopathies (Factor Deficiencies, Hemophilia)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Thrombophilia & Hypercoagulable States</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Deep Vein Thrombosis (DVT) & Pulmonary Embolism (PE)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Antiphospholipid Syndrome (APS)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Management of Oral Anticoagulants (Warfarin, DOACs)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Perioperative Anticoagulation Management</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Heparin-Induced Thrombocytopenia (HIT)</span></li>
+                    <li class="condition-item"><i data-lucide="chevron-right"></i><span>Unexplained Cytopenias & Bone Marrow Evaluation</span></li>
+                </ul>
+            </div>
+
+            <!-- Genomic Testing Box -->
+            <div class="genomic-box">
+                <div class="genomic-content">
+                    <h3><i data-lucide="dna"></i> Genomic Testing Review</h3>
+                    <p>Modern oncology relies heavily on understanding the specific genetic mutations driving a tumor. Our specialists are highly experienced in interpreting complex Next-Generation Sequencing (NGS) reports to identify targeted therapy options and clinical trial eligibility.</p>
+                    <div class="genomic-tags">
+                        <span class="genomic-tag">FoundationOne®</span>
+                        <span class="genomic-tag">Tempus</span>
+                        <span class="genomic-tag">Caris Life Sciences®</span>
+                        <span class="genomic-tag">Guardant360®</span>
+                        <span class="genomic-tag">Invitae</span>
+                        <span class="genomic-tag">Myriad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <p style="margin-bottom: 1.5rem;">Don't see your specific diagnosis listed? We likely still cover it.</p>
+                <a href="mailto:contact@cancerclaritymd.com" class="btn btn-outline">Contact Us to Inquire</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem; display: block;">Cancer Clarity MD.</div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-bottom: 1.5rem; max-width: 250px;">Independent Oncology Advisory</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); text-decoration: none; font-size: 0.875rem;">contact@cancerclaritymd.com</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="#">For Physicians</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="#">Patient Education</a></li>
+                        <li><a href="#">Screening Guidelines</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Action</h4>
+                    <a href="#" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Start Case Review</a>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="apple" style="width: 14px; height: 14px; margin-right: 4px;"></i> iOS</a>
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="play" style="width: 14px; height: 14px; margin-right: 4px;"></i> Android</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cancer Clarity MD. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                Cancer Clarity MD provides independent medical advisory services. Our reviews are for informational and educational purposes and do not establish a primary doctor-patient relationship. We do not prescribe medication or provide direct treatment. Always consult with your primary oncology team before making changes to your treatment plan.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
