@@ -1,0 +1,602 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Disclaimer | Cancer Clarity MD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --navy: #0A192F;
+            --teal: #008080;
+            --teal-light: #E6F2F2;
+            --teal-dark: #006666;
+            --white: #FFFFFF;
+            --bg: #F8F9FA;
+            --bg-alt: #F0F4F8;
+            --bg-dark: #112240;
+            --text: #333333;
+            --text-light: #A0AABF;
+            --text-muted: #666666;
+            --border: #E2E8F0;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-dark {
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        /* Buttons */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.75rem 2rem; 
+            font-family: var(--font-body); 
+            font-size: 0.875rem; 
+            font-weight: 400; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1px solid transparent; 
+            text-decoration: none; 
+        }
+        
+        .btn-primary { 
+            background-color: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-primary:hover { 
+            background-color: var(--teal-dark); 
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .btn-outline:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: #4B5563;
+        }
+
+        .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .navbar.scrolled .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--navy);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg);
+            z-index: 999;
+            padding: 6rem 24px 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Legal Content Styles */
+        .legal-wrapper {
+            max-width: 800px;
+            margin: -4rem auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .download-banner {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .download-banner-text h3 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .download-banner-text p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .legal-content {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .legal-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .last-updated {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 3rem;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 2rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-title { font-size: 2.5rem; }
+            .legal-content { padding: 2rem; }
+            .download-banner { flex-direction: column; text-align: center; gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="for-physicians.html" class="nav-link">For Physicians</a>
+                <a href="education.html" class="nav-link">Patient Education</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="start.html" class="btn btn-primary">Start Case Review</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="for-physicians.html" class="nav-link">For Physicians</a>
+        <a href="education.html" class="nav-link">Patient Education</a>
+        <a href="screening.html" class="nav-link">Screening Guidelines</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="start.html" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section-dark">
+        <div class="container">
+            <span class="eyebrow">LEGAL & COMPLIANCE</span>
+            <h1 class="hero-title">Medical Disclaimer</h1>
+            <p class="hero-subtitle">Please read this important information regarding the scope and limitations of our independent advisory services.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="legal-wrapper">
+                
+                <div class="download-banner">
+                    <div class="download-banner-text">
+                        <h3>Download Official Document</h3>
+                        <p>Keep a copy of our Medical Disclaimer for your records.</p>
+                    </div>
+                    <a href="https://gw-tk.tanka.ai/npc/v2/file/715cd479-ab53-42a0-af8a-e7d19a1547cf" target="_blank" class="btn btn-outline">
+                        <i data-lucide="download" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                        Download PDF
+                    </a>
+                </div>
+
+                <div class="legal-content">
+                    <span class="last-updated">Last Updated: October 2023</span>
+
+                    <h2>1. Independent Advisory Service</h2>
+                    <p>Cancer Clarity MD provides independent medical advisory services and second opinions based solely on the medical records, imaging, and pathology reports provided by the patient or their referring physician. Our service is designed to offer an additional expert perspective to help you and your local treating team make informed decisions about your care.</p>
+                    <p>We do not conduct physical examinations, and our review is limited to the documentation submitted to us.</p>
+
+                    <h2>2. No Doctor-Patient Relationship</h2>
+                    <p>The use of Cancer Clarity MD's services, including the receipt of a written report or participation in a video consultation, <strong>does not establish a primary doctor-patient relationship</strong>. Our reviewing specialists act as independent consultants.</p>
+                    <p>Cancer Clarity MD and its affiliated physicians will not:</p>
+                    <ul>
+                        <li>Assume primary care or primary oncology responsibilities.</li>
+                        <li>Prescribe medications or administer treatments.</li>
+                        <li>Order new diagnostic tests, imaging, or laboratory work.</li>
+                        <li>Admit patients to a hospital or manage acute complications.</li>
+                    </ul>
+
+                    <h2>3. Not a Substitute for Emergency Care</h2>
+                    <p>This service is not intended for medical emergencies or urgent clinical situations. If you are experiencing a medical emergency, severe pain, or acute symptoms, please call 911 or proceed to the nearest emergency department immediately. Do not delay seeking emergency medical care because of any information provided by Cancer Clarity MD.</p>
+
+                    <h2>4. Accuracy of Information</h2>
+                    <p>The accuracy, relevance, and clinical utility of our advisory report depend entirely on the completeness and accuracy of the medical records and information provided to us. Cancer Clarity MD is not responsible for omissions, errors, or incomplete data in the records submitted for review.</p>
+                    <p>It is the responsibility of the patient or the referring physician to ensure that all relevant pathology reports, imaging studies, genomic testing results, and clinical notes are provided prior to the review.</p>
+
+                    <h2>5. Collaboration with Treating Physicians</h2>
+                    <p>The opinions and recommendations provided by Cancer Clarity MD are intended to complement, not replace, the clinical judgment of your local treating oncologist or primary care physician. We strongly encourage patients to share our advisory report with their primary medical team to discuss how the insights may integrate into their overall treatment plan.</p>
+
+                    <h2>6. Limitation of Liability</h2>
+                    <p>To the fullest extent permitted by applicable law, Cancer Clarity MD, its affiliates, and its reviewing physicians shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use of our advisory services, reliance on the information provided in our reports, or any subsequent medical decisions made by the patient or their treating physicians.</p>
+
+                    <h2>7. Jurisdiction</h2>
+                    <p>These terms and the provision of our services are governed by the laws of the jurisdiction in which Cancer Clarity MD operates, without regard to conflict of law principles. Any disputes arising from the use of this service shall be resolved in the appropriate courts of that jurisdiction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Cancer Clarity MD.</a>
+                    <p class="footer-desc">Expert oncological insights and second opinions to empower patients and support physicians.</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); font-size: 0.9rem;">contact@cancerclaritymd.com</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="for-physicians.html">For Physicians</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="education.html">Patient Education</a></li>
+                        <li><a href="screening.html">Screening Guidelines</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Action</h4>
+                    <ul class="footer-links">
+                        <li><a href="start.html" style="color: var(--teal);">Start Case Review</a></li>
+                        <li><a href="#">Download App (iOS)</a></li>
+                        <li><a href="#">Download App (Android)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2023 Cancer Clarity MD. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            <p class="disclaimer-text">
+                Cancer Clarity MD provides independent medical advisory services. The information and opinions provided are for educational and informational purposes and are intended to complement, not replace, the relationship that exists between a patient and their existing physician. Cancer Clarity MD does not prescribe medication or assume primary care responsibilities. In the event of a medical emergency, please contact your local emergency services immediately.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileBtn.innerHTML = '<i data-lucide="x"></i>';
+                lucide.createIcons();
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

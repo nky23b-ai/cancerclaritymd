@@ -1,0 +1,976 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Case Review | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: var(--font-body); 
+            font-weight: 300; 
+            font-size: 16px; 
+            line-height: 1.75; 
+            color: var(--text); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { 
+            font-family: var(--font-heading); 
+            font-weight: 400; 
+            letter-spacing: 0.01em; 
+            line-height: 1.25; 
+            color: var(--navy);
+        }
+        
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+        
+        .eyebrow { 
+            font-family: var(--font-body); 
+            font-size: 0.7rem; 
+            font-weight: 500; 
+            letter-spacing: 0.18em; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            display: block; 
+            margin-bottom: 12px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-alt);
+        }
+
+        .section-dark {
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .section-dark h1, .section-dark h2, .section-dark h3, .section-dark p {
+            color: var(--white);
+        }
+
+        .section-dark p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Buttons */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.75rem 2rem; 
+            font-family: var(--font-body); 
+            font-size: 0.875rem; 
+            font-weight: 400; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1px solid transparent; 
+            text-decoration: none; 
+        }
+        
+        .btn-primary { 
+            background-color: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-primary:hover { 
+            background-color: var(--teal-dark); 
+        }
+        
+        .btn-outline { 
+            background: transparent; 
+            border-color: var(--teal); 
+            color: var(--teal); 
+        }
+        
+        .btn-outline:hover { 
+            background: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-white { 
+            background: white; 
+            color: var(--navy); 
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: #4B5563;
+        }
+
+        .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .navbar.scrolled .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--navy);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg);
+            z-index: 999;
+            padding: 6rem 24px 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://gw-tk.tanka.ai/npc/v2/file/32b23b11-ddf7-41c8-a0e0-7dfde6978251');
+            background-size: cover;
+            background-position: center 30%;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(12, 26, 39, 0.72);
+            z-index: -1;
+        }
+        .hero h1, .hero p {
+            color: white;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Form Styles */
+        .form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .form-section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .form-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text);
+            background-color: var(--white);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* File Upload */
+        .upload-zone {
+            border: 1px dashed var(--text-light);
+            border-radius: 4px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background-color: var(--bg-alt);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--teal);
+            background-color: var(--teal-soft);
+        }
+
+        .upload-icon {
+            color: var(--teal);
+            margin-bottom: 1rem;
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+        }
+
+        .upload-text {
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-hint {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .helper-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--bg-alt);
+            border-radius: 4px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--teal);
+        }
+
+        .checkbox-group label {
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.5;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        .hipaa-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Radio Groups */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 300;
+            text-transform: none;
+            letter-spacing: normal;
+            cursor: pointer;
+        }
+        .radio-label input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--teal);
+            flex-shrink: 0;
+        }
+
+        /* Package Cards */
+        .package-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .package-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            background: var(--white);
+        }
+        .package-card:has(input:checked) {
+            border-color: var(--teal);
+            background: var(--teal-soft);
+        }
+        .package-card input[type="radio"] {
+            margin-top: 4px;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--teal);
+            flex-shrink: 0;
+        }
+        .package-content { flex: 1; }
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        .package-name {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .package-price {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+        .package-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .badge-recommended {
+            background: var(--teal);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 2rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 4rem 0; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .form-wrapper { padding: 2rem 1.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="for-physicians.html" class="nav-link">For Physicians</a>
+                <a href="education.html" class="nav-link">Patient Education</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="start.html" class="btn btn-primary">Start Case Review</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="for-physicians.html" class="nav-link">For Physicians</a>
+        <a href="education.html" class="nav-link">Patient Education</a>
+        <a href="screening.html" class="nav-link">Screening Guidelines</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="start.html" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="eyebrow">INTAKE FORM</span>
+            <h1 class="hero-title">Start Your Case Review</h1>
+            <p class="hero-subtitle">Provide your details below to begin the secure review process with our expert oncologists.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="form-wrapper">
+                <form>
+
+                    <!-- Section 1: Patient Information -->
+                    <h3 class="form-section-title">1. Patient Information</h3>
+
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" placeholder="Jane Doe" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date of Birth *</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="jane@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country of Residence *</label>
+                        <select required>
+                            <option value="">Select Country...</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="IN">India</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are you the patient, or submitting on behalf of a patient? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="submitter" value="patient" required> Patient</label>
+                            <label class="radio-label"><input type="radio" name="submitter" value="family"> Family Member</label>
+                            <label class="radio-label"><input type="radio" name="submitter" value="caregiver"> Caregiver</label>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Medical Information -->
+                    <h3 class="form-section-title">2. Medical Information</h3>
+
+                    <div class="form-group">
+                        <label>Primary Diagnosis or Condition *</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="diagnosis_type" value="solid" required> Cancer (Solid Tumor)</label>
+                            <label class="radio-label"><input type="radio" name="diagnosis_type" value="heme_malignant"> Blood Disorder (Leukemia, Lymphoma, Myeloma)</label>
+                            <label class="radio-label"><input type="radio" name="diagnosis_type" value="heme_benign"> Other Hematologic Condition (Benign)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Year of Diagnosis</label>
+                            <input type="text" placeholder="e.g. 2024">
+                        </div>
+                        <div class="form-group">
+                            <label>Current Treatment Status *</label>
+                            <select required>
+                                <option value="">Select...</option>
+                                <option value="new">New diagnosis</option>
+                                <option value="active">Currently receiving treatment</option>
+                                <option value="progression">Disease progression</option>
+                                <option value="confirm">Seeking confirmation of treatment plan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Specific Questions for the Specialist</label>
+                        <p class="helper-text">Please describe your main concerns or specific questions about your diagnosis or treatment options.</p>
+                        <textarea placeholder="e.g., Are there clinical trials I qualify for? Is this the best targeted therapy for my mutation? Does my genomic testing change my treatment options?"></textarea>
+                    </div>
+
+                    <!-- Section 3: Medical Records Upload -->
+                    <h3 class="form-section-title">3. Medical Records Upload</h3>
+
+                    <div style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+                        <p style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 0.75rem;">What to upload</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Pathology / biopsy reports
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Imaging reports (CT, MRI, PET)
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Genomic / NGS testing results
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Recent laboratory results
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Oncologist / clinic notes
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+                                <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--teal); flex-shrink: 0;"></i> Treatment history summary
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.9rem; font-style: italic;">Don't have everything yet? You can submit now and provide additional records after — our team will follow up.</p>
+                    </div>
+
+                    <div class="upload-zone">
+                        <i data-lucide="upload-cloud" class="upload-icon"></i>
+                        <div class="upload-text">Click to upload or drag and drop</div>
+                        <div class="upload-hint">PDF, DOCX, JPG — up to 50MB total</div>
+                    </div>
+
+                    <!-- Section 4: Consultation Package -->
+                    <h3 class="form-section-title">4. Consultation Package</h3>
+
+                    <div class="package-options">
+                        <label class="package-card">
+                            <input type="radio" name="package" value="written" required>
+                            <div class="package-content">
+                                <div class="package-header">
+                                    <div>
+                                        <div class="package-name">Written Second Opinion</div>
+                                        <div class="package-price">Fee discussed upon inquiry</div>
+                                    </div>
+                                </div>
+                                <p class="package-desc">Structured written opinion from a board-certified specialist delivered within 48 to 72 hours of record receipt.</p>
+                            </div>
+                        </label>
+
+                        <label class="package-card">
+                            <input type="radio" name="package" value="video">
+                            <div class="package-content">
+                                <div class="package-header">
+                                    <div>
+                                        <div class="package-name">Written Opinion + Video Consultation <span class="badge-recommended">Recommended</span></div>
+                                        <div class="package-price">Fee discussed upon inquiry</div>
+                                    </div>
+                                </div>
+                                <p class="package-desc">Includes the full written report plus a direct video consultation with the reviewing physician to discuss findings and answer your questions.</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Consent -->
+                    <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border);">
+                        <h4 style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 1.25rem;">Patient Consent &amp; Acknowledgment</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+                            <p style="margin-bottom: 0.75rem; font-size: 0.85rem;">By submitting this form, I confirm and agree to the following:</p>
+                            <ol style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li><strong style="color: var(--navy); font-weight: 500;">Independent Advisory Only.</strong> I understand that Cancer Clarity MD provides an independent specialist opinion and does not establish a treating physician-patient relationship. The advisory report does not replace the clinical judgment of my treating oncologist.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">Accuracy of Submitted Records.</strong> I confirm that the medical records I am submitting are authentic and complete to the best of my knowledge. I accept responsibility for any material inaccuracies in the documents I provide.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">Voluntary Engagement.</strong> My engagement with Cancer Clarity MD is entirely voluntary. I am free to disregard, share, or act upon the advisory report at my own discretion, in consultation with my treating medical team.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">Privacy and Data Use.</strong> I consent to Cancer Clarity MD receiving, storing, and using my medical records solely for the purpose of the requested independent review, handled in accordance with HIPAA.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">No Emergency Services.</strong> I understand that Cancer Clarity MD is not an emergency service and is not appropriate for urgent or life-threatening situations.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">Fee and Refund Policy.</strong> Fees are non-refundable once the specialist review has commenced.</li>
+                                <li><strong style="color: var(--navy); font-weight: 500;">Medical Disclaimer.</strong> I have read and understood the <a href="disclaimer.html" style="color: var(--teal); text-decoration: underline;">Cancer Clarity MD Medical Disclaimer</a> and agree to the terms stated therein.</li>
+                            </ol>
+                        </div>
+                        <div class="checkbox-group" style="margin: 0; padding: 0; background: transparent; border-radius: 0;">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent" style="font-size: 0.875rem;">
+                                I confirm that the information provided is accurate and that I understand this consultation is an independent second opinion service and not a substitute for direct medical care. I agree to the Terms of Service, Privacy Policy, and the Patient Consent terms above.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; margin-top: 2rem;">Submit Case for Review</button>
+
+                    <div class="hipaa-note">
+                        <i data-lucide="lock" style="width: 14px; height: 14px;"></i>
+                        Your information is transmitted securely and protected in accordance with HIPAA and applicable healthcare privacy standards.
+                    </div>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://gw-tk.tanka.ai/npc/v2/file/715cd479-ab53-42a0-af8a-e7d19a1547cf" target="_blank" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Download Medical Disclaimer (PDF)</a>
+                        &nbsp;·&nbsp;
+                        <a href="https://gw-tk.tanka.ai/npc/v2/file/35c2a62c-5c71-4626-b294-a51c9c27c2c5" target="_blank" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Download Patient Consent Form (PDF)</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Cancer Clarity MD.</a>
+                    <p class="footer-desc">Expert oncological insights and second opinions to empower patients and support physicians.</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); font-size: 0.9rem;">contact@cancerclaritymd.com</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="for-physicians.html">For Physicians</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="education.html">Patient Education</a></li>
+                        <li><a href="screening.html">Screening Guidelines</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Action</h4>
+                    <ul class="footer-links">
+                        <li><a href="start.html" style="color: var(--teal);">Start Case Review</a></li>
+                        <li><a href="#">Download App (iOS)</a></li>
+                        <li><a href="#">Download App (Android)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2023 Cancer Clarity MD. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            <p class="disclaimer-text">
+                Cancer Clarity MD provides independent medical advisory services. The information and opinions provided are for educational and informational purposes and are intended to complement, not replace, the relationship that exists between a patient and their existing physician. Cancer Clarity MD does not prescribe medication or assume primary care responsibilities. In the event of a medical emergency, please contact your local emergency services immediately.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileBtn.innerHTML = '<i data-lucide="x"></i>';
+                lucide.createIcons();
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
