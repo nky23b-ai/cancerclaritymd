@@ -1,0 +1,660 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Screening Guidelines | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: var(--font-body); 
+            font-weight: 300; 
+            font-size: 16px; 
+            line-height: 1.75; 
+            color: var(--text); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { 
+            font-family: var(--font-heading); 
+            font-weight: 400; 
+            letter-spacing: 0.01em; 
+            line-height: 1.25; 
+            color: var(--navy);
+        }
+        
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+        
+        .eyebrow { 
+            font-family: var(--font-body); 
+            font-size: 0.7rem; 
+            font-weight: 500; 
+            letter-spacing: 0.18em; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            display: block; 
+            margin-bottom: 12px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-alt);
+        }
+
+        .section-dark {
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .section-dark h1, .section-dark h2, .section-dark h3, .section-dark p {
+            color: var(--white);
+        }
+
+        .section-dark p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Buttons */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.75rem 2rem; 
+            font-family: var(--font-body); 
+            font-size: 0.875rem; 
+            font-weight: 400; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1px solid transparent; 
+            text-decoration: none; 
+        }
+        
+        .btn-primary { 
+            background-color: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-primary:hover { 
+            background-color: var(--teal-dark); 
+        }
+        
+        .btn-outline { 
+            background: transparent; 
+            border-color: var(--teal); 
+            color: var(--teal); 
+        }
+        
+        .btn-outline:hover { 
+            background: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-white { 
+            background: white; 
+            color: var(--navy); 
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: #4B5563;
+        }
+
+        .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .navbar.scrolled .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--navy);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg);
+            z-index: 999;
+            padding: 6rem 24px 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-note {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+
+        /* Tables / Lists */
+        .section-title {
+            margin-bottom: 2.5rem;
+        }
+
+        .screening-table {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .screening-row {
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            padding: 2rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .screening-row:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .col-cancer {
+            flex: 1;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--navy);
+        }
+
+        .col-screening {
+            flex: 2;
+            color: var(--text-muted);
+            padding: 0 2rem;
+            font-size: 0.95rem;
+        }
+
+        .col-age {
+            flex: 1;
+            font-weight: 500;
+            color: var(--teal);
+            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        .text-block {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .source-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 4rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 2rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 4rem 0; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .screening-row { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+            .col-screening { padding: 0; }
+            .col-age { text-align: left; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="for-physicians.html" class="nav-link">For Physicians</a>
+                <a href="education.html" class="nav-link">Patient Education</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="start.html" class="btn btn-primary">Start Case Review</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="for-physicians.html" class="nav-link">For Physicians</a>
+        <a href="education.html" class="nav-link">Patient Education</a>
+        <a href="screening.html" class="nav-link">Screening Guidelines</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="start.html" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section-dark">
+        <div class="container">
+            <span class="eyebrow">CANCER SCREENING</span>
+            <h1 class="hero-title">Screening Guidelines</h1>
+            <p class="hero-subtitle">Based on U.S. Preventive Services Task Force (USPSTF) recommendations.</p>
+            <p class="hero-note">These are general guidelines. Speak with your physician about what is right for you.</p>
+        </div>
+    </section>
+
+    <!-- Screening for Women -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Recommended Screening for Women</h2>
+            
+            <div class="screening-table">
+                <div class="screening-row">
+                    <div class="col-cancer">Breast Cancer</div>
+                    <div class="col-screening">Mammogram every 1 to 2 years</div>
+                    <div class="col-age">Age 40 (discuss with physician)</div>
+                </div>
+                <div class="screening-row">
+                    <div class="col-cancer">Cervical Cancer</div>
+                    <div class="col-screening">Pap smear every 3 years OR HPV test every 5 years</div>
+                    <div class="col-age">Ages 21 - 65</div>
+                </div>
+                <div class="screening-row">
+                    <div class="col-cancer">Colorectal Cancer</div>
+                    <div class="col-screening">Colonoscopy (every 10 years) or stool-based tests (annually)</div>
+                    <div class="col-age">Ages 45 - 75</div>
+                </div>
+                <div class="screening-row">
+                    <div class="col-cancer">Lung Cancer</div>
+                    <div class="col-screening">Low-dose CT scan (for current/former heavy smokers)</div>
+                    <div class="col-age">Ages 50 - 80</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screening for Men -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Recommended Screening for Men</h2>
+            
+            <div class="screening-table">
+                <div class="screening-row">
+                    <div class="col-cancer">Prostate Cancer</div>
+                    <div class="col-screening">PSA blood test (discuss risks and benefits with physician)</div>
+                    <div class="col-age">Ages 55 - 69</div>
+                </div>
+                <div class="screening-row">
+                    <div class="col-cancer">Colorectal Cancer</div>
+                    <div class="col-screening">Colonoscopy (every 10 years) or stool-based tests (annually)</div>
+                    <div class="col-age">Ages 45 - 75</div>
+                </div>
+                <div class="screening-row">
+                    <div class="col-cancer">Lung Cancer</div>
+                    <div class="col-screening">Low-dose CT scan (for current/former heavy smokers)</div>
+                    <div class="col-age">Ages 50 - 80</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Children and Young Adults -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Children & Young Adults</h2>
+            <div class="text-block">
+                <p style="margin-bottom: 1rem;">Routine cancer screening is generally not recommended for children and young adults unless they have specific genetic syndromes or a strong family history of early-onset cancer.</p>
+                <p>However, it is important to be aware of unusual symptoms such as unexplained weight loss, persistent pain, unusual lumps, or prolonged fatigue, and to discuss these with a pediatrician or primary care physician.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- High Risk -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">High-Risk Individuals</h2>
+            <div class="text-block">
+                <p style="margin-bottom: 1rem;">If you have a strong family history of cancer, known genetic mutations (such as BRCA1/2 or Lynch syndrome), or previous radiation therapy, you may be considered "high-risk."</p>
+                <p>High-risk individuals often need to start screening at an earlier age, be screened more frequently, or use different screening methods (such as MRI in addition to mammography for breast cancer). Consult with a genetic counselor or oncologist to develop a personalized screening plan.</p>
+            </div>
+            
+            <p class="source-note">Source: U.S. Preventive Services Task Force (USPSTF). Guidelines are subject to change. Always consult your healthcare provider.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Cancer Clarity MD.</a>
+                    <p class="footer-desc">Expert oncological insights and second opinions to empower patients and support physicians.</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); font-size: 0.9rem;">contact@cancerclaritymd.com</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="for-physicians.html">For Physicians</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="education.html">Patient Education</a></li>
+                        <li><a href="screening.html">Screening Guidelines</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Action</h4>
+                    <ul class="footer-links">
+                        <li><a href="start.html" style="color: var(--teal);">Start Case Review</a></li>
+                        <li><a href="#">Download App (iOS)</a></li>
+                        <li><a href="#">Download App (Android)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2023 Cancer Clarity MD. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            <p class="disclaimer-text">
+                Cancer Clarity MD provides independent medical advisory services. The information and opinions provided are for educational and informational purposes and are intended to complement, not replace, the relationship that exists between a patient and their existing physician. Cancer Clarity MD does not prescribe medication or assume primary care responsibilities. In the event of a medical emergency, please contact your local emergency services immediately.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileBtn.innerHTML = '<i data-lucide="x"></i>';
+                lucide.createIcons();
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

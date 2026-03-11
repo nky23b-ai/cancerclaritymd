@@ -234,7 +234,7 @@
         /* Hero Section — Split Layout */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 85vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
@@ -903,7 +903,7 @@
 
         <!-- Right: Image -->
         <div class="hero-image-panel">
-            <img src="images/hero-physicians.jpg" alt="Board-certified oncology specialists">
+            <img src="https://memory.tanka.ai/BW7L2iZdv-bosXWWcQgID" alt="Board-certified oncology specialists">
         </div>
     </section>
 
@@ -974,7 +974,7 @@
                 <div>
                     <span class="eyebrow">OUR APPROACH</span>
                     <h2>Specialist-Led. Precisely Organized.</h2>
-                    <p style="margin-bottom: 2rem;">Every case is reviewed by a U.S. board-certified oncologist. Our proprietary system organizes your records so the physician can focus entirely on clinical analysis — not paperwork.</p>
+                    <p style="margin-bottom: 2rem;">Every case is reviewed by a U.S. board-certified oncologist. Our proprietary system organizes your records so the physician can focus entirely on clinical analysis - not paperwork.</p>
                     
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <div class="card icon-card" style="padding: 1.5rem;">
@@ -1088,7 +1088,14 @@
                             <i data-lucide="microscope"></i>
                             <h3>Expert Review</h3>
                         </div>
-                        <p>Your specialist conducts a thorough review of all submitted materials against current evidence-based guidelines, clinical trials, and the latest literature.</p>
+                        <p>Your specialist conducts a thorough review of all submitted materials against current evidence-based guidelines and the latest oncology literature.</p>
+                        <div class="flow-tags" style="margin-top: 0.75rem;">
+                            <span>NCCN Guidelines</span>
+                            <span>ASCO Updates</span>
+                            <span>ASH Presentations</span>
+                            <span>ESMO Guidelines</span>
+                            <span>Clinical Trials</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1103,7 +1110,7 @@
                             <i data-lucide="file-text"></i>
                             <h3>Written Report</h3>
                         </div>
-                        <p>Receive a detailed written second opinion within <strong>48–72 hours</strong> of record confirmation — structured, clear, and actionable.</p>
+                        <p>Receive a detailed written second opinion within <strong>48-72 hours</strong> of record confirmation - structured, clear, and actionable.</p>
                     </div>
                 </div>
 
@@ -1159,8 +1166,8 @@
             <!-- Report Tabs -->
             <div style="max-width: 820px; margin: 0 auto;">
                 <div class="report-tabs">
-                    <button class="report-tab active" onclick="showReport('report1', this)">Case 1 — Catherine L., NSCLC</button>
-                    <button class="report-tab" onclick="showReport('report2', this)">Case 2 — James M., DLBCL</button>
+                    <button class="report-tab active" onclick="showReport('report1', this)">Case 1 - Catherine L., NSCLC</button>
+                    <button class="report-tab" onclick="showReport('report2', this)">Case 2 - James M., DLBCL</button>
                 </div>
 
                 <!-- Report 1: Catherine L. — from actual PDF -->
@@ -1205,7 +1212,7 @@
                                 <div class="finding-box" style="padding: 0.75rem 1rem;">
                                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
                                         <i data-lucide="dna" style="width: 14px; height: 14px; color: var(--teal);"></i>
-                                        <span style="font-size: 0.8rem; font-weight: 500; color: var(--navy);">KRAS G12C — Detected</span>
+                                        <span style="font-size: 0.8rem; font-weight: 500; color: var(--navy);">KRAS G12C - Detected</span>
                                     </div>
                                     <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Actionable in 2nd-line setting (sotorasib / adagrasib). Document for future planning.</p>
                                 </div>
@@ -1222,7 +1229,7 @@
                         <div class="report-section" style="border-bottom: none; padding-bottom: 0;">
                             <div class="report-label">Specialist Recommendations</div>
                             <ul class="checklist" style="margin: 0.5rem 0 0;">
-                                <li><i data-lucide="arrow-right"></i> Proceed with concurrent cisplatin-based chemoradiation — consistent with NCCN Category 1 for unresectable stage IIIA.</li>
+                                <li><i data-lucide="arrow-right"></i> Proceed with concurrent cisplatin-based chemoradiation - consistent with NCCN Category 1 for unresectable stage IIIA.</li>
                                 <li><i data-lucide="arrow-right"></i> Consolidation durvalumab (PACIFIC protocol) appropriate; treating team should counsel on STK11 prognostic implications.</li>
                                 <li><i data-lucide="arrow-right"></i> Refer to comprehensive cancer center for clinical trial evaluation of KRAS G12C-directed and STK11-resistant strategies.</li>
                             </ul>
@@ -1272,7 +1279,7 @@
                                 <div class="finding-box" style="padding: 0.75rem 1rem;">
                                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
                                         <i data-lucide="dna" style="width: 14px; height: 14px; color: var(--teal);"></i>
-                                        <span style="font-size: 0.8rem; font-weight: 500; color: var(--navy);">MYC / BCL2 FISH — Negative</span>
+                                        <span style="font-size: 0.8rem; font-weight: 500; color: var(--navy);">MYC / BCL2 FISH - Negative</span>
                                     </div>
                                     <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Double-hit lymphoma excluded. Standard R-CHOP remains appropriate first-line approach.</p>
                                 </div>
@@ -1289,7 +1296,7 @@
                         <div class="report-section" style="border-bottom: none; padding-bottom: 0;">
                             <div class="report-label">Specialist Recommendations</div>
                             <ul class="checklist" style="margin: 0.5rem 0 0;">
-                                <li><i data-lucide="arrow-right"></i> Proceed with R-CHOP-21 × 6 cycles as proposed — appropriate for GCB-DLBCL without double-hit features.</li>
+                                <li><i data-lucide="arrow-right"></i> Proceed with R-CHOP-21 x 6 cycles as proposed - appropriate for GCB-DLBCL without double-hit features.</li>
                                 <li><i data-lucide="arrow-right"></i> Interim PET-CT after cycle 2–3 recommended to assess early response and guide consolidation planning.</li>
                                 <li><i data-lucide="arrow-right"></i> Discuss enrollment in POLARIX or similar trials evaluating polatuzumab vedotin-based regimens for high-IPI DLBCL.</li>
                             </ul>
@@ -1356,7 +1363,7 @@
             <div class="grid-2" style="align-items: center; gap: 4rem;">
                 <div>
                     <span class="eyebrow">GENETIC TESTING CONSULTATION</span>
-                    <h2>Understanding Your Genetic Results — and What They Mean for Your Family.</h2>
+                    <h2>Understanding Your Genetic Results and What They Mean for Your Family.</h2>
                     <p style="margin-bottom: 1.5rem;">Genetic and genomic test results can be complex, emotionally significant, and difficult to interpret without specialist guidance. We offer dedicated consultations to help patients and families navigate these findings with clarity.</p>
                     <div style="display: flex; flex-direction: column; gap: 1rem;">
                         <div style="display: flex; align-items: flex-start; gap: 1rem;">
@@ -1365,7 +1372,7 @@
                             </div>
                             <div>
                                 <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Interpreting Your Results</h4>
-                                <p style="font-size: 0.9rem; margin: 0; color: var(--text-muted);">Plain-language explanation of what your genetic or genomic test findings mean — including variants of uncertain significance, hereditary mutations, and somatic tumor markers.</p>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--text-muted);">Plain-language explanation of what your genetic or genomic test findings mean - including variants of uncertain significance, hereditary mutations, and somatic tumor markers.</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 1rem;">

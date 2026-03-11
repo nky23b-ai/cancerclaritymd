@@ -1,0 +1,716 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: var(--font-body); 
+            font-weight: 300; 
+            font-size: 16px; 
+            line-height: 1.75; 
+            color: var(--text); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { 
+            font-family: var(--font-heading); 
+            font-weight: 400; 
+            letter-spacing: 0.01em; 
+            line-height: 1.25; 
+            color: var(--navy);
+        }
+        
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+        
+        .eyebrow { 
+            font-family: var(--font-body); 
+            font-size: 0.7rem; 
+            font-weight: 500; 
+            letter-spacing: 0.18em; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            display: block; 
+            margin-bottom: 12px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-alt);
+        }
+
+        .section-dark {
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .section-dark h1, .section-dark h2, .section-dark h3, .section-dark p {
+            color: var(--white);
+        }
+
+        .section-dark p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Buttons */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.75rem 2rem; 
+            font-family: var(--font-body); 
+            font-size: 0.875rem; 
+            font-weight: 400; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1px solid transparent; 
+            text-decoration: none; 
+        }
+        
+        .btn-primary { 
+            background-color: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-primary:hover { 
+            background-color: var(--teal-dark); 
+        }
+        
+        .btn-outline { 
+            background: transparent; 
+            border-color: var(--teal); 
+            color: var(--teal); 
+        }
+        
+        .btn-outline:hover { 
+            background: var(--teal); 
+            color: white; 
+        }
+        
+        .btn-white { 
+            background: white; 
+            color: var(--navy); 
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: #4B5563;
+        }
+
+        .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .navbar.scrolled .nav-link:hover {
+            color: var(--teal);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--navy);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg);
+            z-index: 999;
+            padding: 6rem 24px 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--navy);
+            background-color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-icon {
+            color: var(--teal);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            background-color: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 2rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 4rem 0; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .faq-question { font-size: 1.1rem; padding: 1.25rem; }
+            .faq-answer { padding: 0 1.25rem; }
+            .faq-item.active .faq-answer { padding: 0 1.25rem 1.25rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="for-physicians.html" class="nav-link">For Physicians</a>
+                <a href="education.html" class="nav-link">Patient Education</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="start.html" class="btn btn-primary">Start Case Review</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="for-physicians.html" class="nav-link">For Physicians</a>
+        <a href="education.html" class="nav-link">Patient Education</a>
+        <a href="screening.html" class="nav-link">Screening Guidelines</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="start.html" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section-dark">
+        <div class="container">
+            <span class="eyebrow">SUPPORT</span>
+            <h1 class="hero-title">Frequently Asked Questions</h1>
+            <p class="hero-subtitle">Clear answers about our process, physicians, and services.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Who are the reviewing physicians?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        All cases are reviewed by U.S. board-certified hematologists and oncologists. They have trained at leading academic medical centers and possess deep expertise in specific cancer types.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does the review process take?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Once we receive all necessary medical records, our standard turnaround time is 3 to 5 business days. We understand the urgency of cancer care and strive to provide insights as quickly as possible without compromising thoroughness.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I submit my medical records?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You can upload your records directly through our secure, HIPAA-compliant portal when you start your case review. Alternatively, you can sign a release form allowing our team to request the records directly from your healthcare providers on your behalf.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will you communicate with my current doctor?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, if you authorize us to do so. We believe in collaborative care and are happy to share our report and discuss our findings directly with your treating oncologist to ensure seamless integration of our recommendations into your care plan.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you prescribe medication or order tests?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        No. Cancer Clarity MD provides advisory services and second opinions. We do not establish a primary doctor-patient relationship, prescribe medications, or order diagnostic tests. Our recommendations are meant to be discussed with and implemented by your local treating physician.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What role does AI play in your service?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We use advanced AI technology strictly to organize, summarize, and extract key data points from voluminous medical records. This allows our physicians to spend their time analyzing the clinical nuances of your case rather than sorting through paperwork. The final review, clinical judgment, and recommendations are always made by a human expert oncologist.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you accept international patients?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we provide expert reviews for patients worldwide. However, all medical records must be translated into English prior to submission. Please note that our recommendations are based on U.S. standards of care and FDA-approved therapies, which may differ from what is available in your home country.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my medical information secure?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. We employ enterprise-grade encryption and strict security protocols. Our entire platform and all processes are fully compliant with HIPAA (Health Insurance Portability and Accountability Act) regulations to ensure your protected health information remains confidential.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can you help me find a clinical trial?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. As part of our comprehensive review, our experts evaluate your specific diagnosis, treatment history, and genomic profile to identify relevant, currently enrolling clinical trials that may be appropriate for your situation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if my cancer type isn't listed on your site?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        While we list the most common conditions we cover, our network includes sub-specialists for nearly all solid tumors and hematologic malignancies, including rare cancers. Please contact us or submit an inquiry, and we will confirm if we have the appropriate expert for your specific diagnosis.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you review pediatric cancer cases?
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Currently, Cancer Clarity MD focuses exclusively on adult oncology and hematology cases (patients aged 18 and older). We do not provide reviews for pediatric cancers at this time.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-alt" style="text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Still have questions?</h2>
+            <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Our care coordination team is here to help you understand how our services can benefit your specific situation.</p>
+            <a href="mailto:contact@cancerclaritymd.com" class="btn btn-outline">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Cancer Clarity MD.</a>
+                    <p class="footer-desc">Expert oncological insights and second opinions to empower patients and support physicians.</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); font-size: 0.9rem;">contact@cancerclaritymd.com</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="for-physicians.html">For Physicians</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="education.html">Patient Education</a></li>
+                        <li><a href="screening.html">Screening Guidelines</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Action</h4>
+                    <ul class="footer-links">
+                        <li><a href="start.html" style="color: var(--teal);">Start Case Review</a></li>
+                        <li><a href="#">Download App (iOS)</a></li>
+                        <li><a href="#">Download App (Android)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2023 Cancer Clarity MD. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            <p class="disclaimer-text">
+                Cancer Clarity MD provides independent medical advisory services. The information and opinions provided are for educational and informational purposes and are intended to complement, not replace, the relationship that exists between a patient and their existing physician. Cancer Clarity MD does not prescribe medication or assume primary care responsibilities. In the event of a medical emergency, please contact your local emergency services immediately.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileBtn.innerHTML = '<i data-lucide="x"></i>';
+                lucide.createIcons();
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't already open
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

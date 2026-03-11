@@ -1,0 +1,243 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Clarity MD | Concierge Oncology Advisory</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy:        #0C1A27;
+            --gold:        #B8924A;
+            --white:       #FFFFFF;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: var(--navy);
+            font-family: var(--font-body);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Split Layout */
+        .split-layout {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Left Panel - Image */
+        .image-panel {
+            flex: 1.2;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background-image: url('https://gw-tk.tanka.ai/npc/v2/file/bcb84db7-2bb4-4aa6-a7ad-efbe71e7bdd8');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+            transition: transform 0.1s ease-out;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(12, 26, 39, 0.1), rgba(12, 26, 39, 0.8));
+            z-index: 1;
+        }
+
+        /* Right Panel - Content */
+        .content-panel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--navy);
+            position: relative;
+            z-index: 2;
+            box-shadow: -20px 0 50px rgba(0,0,0,0.3);
+        }
+
+        .content-wrapper {
+            max-width: 480px;
+            padding: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .tagline {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 2.5rem auto;
+            opacity: 0.6;
+        }
+
+        .subtitle {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+        }
+
+        .btn-enter {
+            display: inline-block;
+            padding: 1rem 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .btn-enter:hover {
+            background-color: var(--white);
+            color: var(--navy);
+            border-color: var(--white);
+        }
+
+        .disclaimer {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 5rem;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .split-layout {
+                flex-direction: column;
+            }
+            .image-panel {
+                flex: 0.8;
+            }
+            .image-overlay {
+                background: linear-gradient(to bottom, rgba(12, 26, 39, 0.1), rgba(12, 26, 39, 1));
+            }
+            .content-panel {
+                flex: 1.2;
+                box-shadow: 0 -20px 50px rgba(12, 26, 39, 1);
+            }
+            .content-wrapper {
+                padding: 2rem;
+                margin-top: -2rem;
+            }
+            .disclaimer {
+                margin-top: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-layout">
+        <!-- Left: Image Panel -->
+        <div class="image-panel">
+            <div class="parallax-bg"></div>
+            <div class="image-overlay"></div>
+        </div>
+
+        <!-- Right: Content Panel -->
+        <div class="content-panel">
+            <div class="content-wrapper">
+                <h1 class="logo">Cancer Clarity MD.</h1>
+                <div class="tagline">Concierge Oncology Advisory</div>
+                
+                <div class="divider"></div>
+                
+                <p class="subtitle">A private specialist perspective for patients who need clarity.</p>
+                
+                <a href="index.html" class="btn-enter" id="enterBtn">Enter Practice</a>
+                
+                <p class="disclaimer">By entering, you acknowledge this service is for informational purposes only and does not establish a primary doctor-patient relationship.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Subtle Parallax Effect on Desktop
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 992) {
+                const bg = document.querySelector('.parallax-bg');
+                // Calculate mouse position relative to center
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                
+                // Move background slightly in opposite direction
+                bg.style.transform = `translate(${-x}px, ${-y}px)`;
+            }
+        });
+
+        // Smooth Fade Out Transition
+        document.getElementById('enterBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            
+            document.body.style.transition = 'opacity 0.8s ease';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                window.location.href = href;
+            }, 800);
+        });
+    </script>
+</body>
+</html>

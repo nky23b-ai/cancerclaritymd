@@ -1,0 +1,742 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Physicians | Cancer Clarity MD</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --bg:          #F9F8F5;
+            --bg-alt:      #F3F2EE;
+            --bg-dark:     #0C1A27;
+            --teal:        #1aaa9b;
+            --teal-dark:   #14887c;
+            --teal-soft:   rgba(26,170,155,0.08);
+            --gold:        #B8924A;
+            --text:        #1C1C1C;
+            --text-muted:  #6B7280;
+            --text-light:  #9CA3AF;
+            --border:      #E8E6E1;
+            --white:       #FFFFFF;
+            --navy:        #0C1A27;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.25;
+            color: var(--navy);
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+        
+        p { 
+            font-weight: 300; 
+            font-size: 1rem; 
+            line-height: 1.75; 
+            color: var(--text-muted); 
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        .bg-light { background-color: var(--bg); }
+        .bg-alt { background-color: var(--bg-alt); }
+        .bg-dark { background-color: var(--bg-dark); color: var(--white); }
+        .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark p { color: var(--white); }
+        .bg-dark p { opacity: 0.8; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 400;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary { background-color: var(--teal); color: white; }
+        .btn-primary:hover { background-color: var(--teal-dark); }
+        .btn-outline { background: transparent; border-color: var(--teal); color: var(--teal); }
+        .btn-outline:hover { background: var(--teal); color: white; }
+        .btn-white { background: white; color: var(--navy); }
+        .btn-white:hover { background: var(--bg-alt); }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            z-index: 1000; 
+            padding: 20px 0;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar.scrolled .logo { color: var(--navy); }
+        
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: white; }
+        .navbar.scrolled .nav-link { color: #4B5563; }
+        .navbar.scrolled .nav-link:hover { color: var(--navy); }
+        .nav-link.active { color: var(--teal); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .navbar.scrolled .mobile-menu-btn { color: var(--navy); }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 1001;
+            padding: 80px 24px 24px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu .nav-link {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 12rem 0 8rem;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://gw-tk.tanka.ai/npc/v2/file/e120487d-4a29-45e7-8b35-c675925a0a02');
+            background-size: cover;
+            background-position: center 20%;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(12, 26, 39, 0.95) 0%, rgba(12, 26, 39, 0.8) 50%, rgba(12, 26, 39, 0.4) 100%);
+            z-index: -1;
+        }
+        @media (max-width: 768px) {
+            .hero-overlay {
+                background: rgba(12, 26, 39, 0.85);
+            }
+        }
+        .hero-content {
+            max-width: 600px;
+        }
+        .hero h1 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .hero .credentials {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Profile Sections */
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+        .profile-section h3 {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: inline-block;
+        }
+        
+        .credentials-list {
+            list-style: none;
+        }
+        .credentials-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .credentials-list i {
+            color: var(--teal);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .credentials-list h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        .credentials-list p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .focus-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .focus-tag {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--navy);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* Philosophy Quote */
+        .philosophy-quote {
+            position: relative;
+            padding: 3rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .philosophy-quote::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: var(--teal-soft);
+            line-height: 1;
+        }
+        .philosophy-quote p {
+            position: relative;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--navy);
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+        .philosophy-quote .author {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--teal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 5rem 0 2.5rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-col h4 {
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .footer-legal a:hover {
+            color: white;
+        }
+        .footer-disclaimer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cancer Clarity MD.</a>
+            
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="physician.html" class="nav-link active">Our Physicians</a>
+                <a href="conditions.html" class="nav-link">Conditions</a>
+                <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+                <a href="#" class="nav-link">For Physicians</a>
+                <a href="#" class="nav-link">Patient Education</a>
+                <a href="#" class="nav-link">FAQ</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Start Case Review</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenuBtn">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="physician.html" class="nav-link active">Our Physicians</a>
+        <a href="conditions.html" class="nav-link">Conditions</a>
+        <a href="consultation-options.html" class="nav-link">Consultation Options</a>
+        <a href="#" class="nav-link">For Physicians</a>
+        <a href="#" class="nav-link">Patient Education</a>
+        <a href="#" class="nav-link">Screening Guidelines</a>
+        <a href="#" class="nav-link">FAQ</a>
+        <a href="#" class="btn btn-primary" style="margin-top: 1rem; text-align: center;">Start Case Review</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero bg-dark">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow">OUR CLINICAL TEAM</span>
+                <h1>Specialist-Led. Every Case.</h1>
+                <p>Every review at Cancer Clarity MD is conducted by a U.S. board-certified hematology-oncology specialist. Our team is built around a single standard: rigorous, independent, and deeply personalized clinical analysis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Physician Section -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="grid-2">
+
+                <!-- Left Column -->
+                <div>
+                    <div class="profile-section">
+                        <h3>Board Certifications</h3>
+                        <ul class="credentials-list">
+                            <li>
+                                <i data-lucide="award"></i>
+                                <div>
+                                    <p style="margin: 0;">American Board of Internal Medicine - Medical Oncology</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-lucide="award"></i>
+                                <div>
+                                    <p style="margin: 0;">American Board of Internal Medicine - Hematology</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-lucide="award"></i>
+                                <div>
+                                    <p style="margin: 0;">American Board of Internal Medicine - Internal Medicine</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>Clinical Philosophy</h3>
+                        <div class="philosophy-quote">
+                            <p>"Every patient deserves a physician who has the time to look beyond the surface, to question the standard approach, and to explore every possible avenue for healing. True oncology care requires both rigorous science and deep compassion."</p>
+                            <div class="author">- Dr. Nikki Bajaj</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <div class="profile-section">
+                        <span class="eyebrow">LEAD PHYSICIAN</span>
+                        <h3>Dr. Nikki Bajaj, MD</h3>
+                        <p style="margin-bottom: 1.25rem;">Dr. Nikki Bajaj is a triple board-certified physician specializing in medical oncology, hematology, and internal medicine. With extensive clinical experience across diverse healthcare settings, she founded Cancer Clarity MD to address a critical gap in modern cancer care: the need for unhurried, deeply personalized, and technologically advanced second opinions.</p>
+                        <p>Throughout her career, Dr. Bajaj has observed that the rapid pace of standard medical systems often leaves patients feeling overwhelmed and uncertain about their treatment plans. She believes that a cancer diagnosis requires more than just a brief consultation - it demands a comprehensive review of a patient's entire clinical history, molecular profile, and personal goals.</p>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>Expertise &amp; Focus</h3>
+                        <p style="margin-bottom: 1.25rem;">Dr. Bajaj's clinical focus centers on precision oncology - utilizing advanced genomic testing (NGS) and molecular profiling to identify targeted therapies and immunotherapies tailored to the individual characteristics of a patient's tumor.</p>
+                        <p>She maintains a rigorous commitment to staying at the forefront of oncology research, continuously monitoring updates to NCCN guidelines, ASCO/ASH presentations, and emerging clinical trials. By integrating proprietary AI tools into her review process, she ensures that no potential therapeutic option is overlooked, while applying her seasoned clinical judgment to determine what is truly appropriate for each patient.</p>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>The Concierge Approach</h3>
+                        <p>At Cancer Clarity MD, Dr. Bajaj personally reviews, validates, and signs every second opinion report. She is dedicated to providing clear, actionable guidance that empowers patients and their local treating oncologists to make the most informed decisions possible.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Coordinator Section -->
+    <section class="bg-alt">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: center;">
+                <div>
+                    <span class="eyebrow">YOUR DEDICATED GUIDE</span>
+                    <h2>Patient Care Coordinator</h2>
+                    <p style="margin-bottom: 1.5rem;">Navigating medical records across different health systems can be exhausting. Your dedicated Patient Care Coordinator handles this burden for you - from the moment you initiate a case review to the day you receive your report.</p>
+                    <p style="margin-bottom: 2rem;">Your coordinator serves as your single point of contact. They manage the secure collection of your clinical notes, pathology reports, and imaging, ensuring the reviewing physician has a complete and accurate clinical picture before analysis begins. They also coordinate your consultation scheduling and are always available to answer logistical questions.</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i data-lucide="check-circle" style="width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 3px;"></i>
+                            <span style="font-size: 0.95rem; color: var(--text-muted);">Manages secure collection of all medical records on your behalf</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i data-lucide="check-circle" style="width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 3px;"></i>
+                            <span style="font-size: 0.95rem; color: var(--text-muted);">Coordinates scheduling for your video consultation with the physician</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i data-lucide="check-circle" style="width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 3px;"></i>
+                            <span style="font-size: 0.95rem; color: var(--text-muted);">Available to answer logistical questions throughout the process</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i data-lucide="check-circle" style="width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 3px;"></i>
+                            <span style="font-size: 0.95rem; color: var(--text-muted);">Ensures nothing is missing before the physician begins their review</span>
+                        </li>
+                    </ul>
+                </div>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--teal-soft); border: 1px solid rgba(26,170,155,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+                        <i data-lucide="user-check" style="width: 28px; height: 28px; color: var(--teal);"></i>
+                    </div>
+                    <div style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--navy); margin-bottom: 0.5rem;">Your Care Coordinator</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Assigned at case initiation</div>
+                    <div style="font-size: 0.8rem; color: var(--teal); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; border-top: 1px solid var(--border); padding-top: 1.25rem;">Available throughout your entire review</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Clinical Standard Section -->
+    <section class="bg-alt">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <span class="eyebrow">OUR STANDARD</span>
+                <h2>The Cancer Clarity MD Standard</h2>
+                <p style="margin-bottom: 3rem;">While Dr. Bajaj leads our clinical team, every physician in the Cancer Clarity MD network adheres to strict standards of excellence.</p>
+
+                <div class="grid-3" style="text-align: left;">
+                    <div class="card">
+                        <i data-lucide="shield-check" style="color: var(--teal); margin-bottom: 1rem; width: 32px; height: 32px;"></i>
+                        <h4 style="margin-bottom: 0.5rem;">U.S. Board Certified</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">All reviewing physicians hold active board certifications in Medical Oncology or Hematology in the United States.</p>
+                    </div>
+                    <div class="card">
+                        <i data-lucide="book-open" style="color: var(--teal); margin-bottom: 1rem; width: 32px; height: 32px;"></i>
+                        <h4 style="margin-bottom: 0.5rem;">Current Practice</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Our specialists are actively practicing medicine, ensuring they are up-to-date with the latest clinical trials and treatment protocols.</p>
+                    </div>
+                    <div class="card">
+                        <i data-lucide="users" style="color: var(--teal); margin-bottom: 1rem; width: 32px; height: 32px;"></i>
+                        <h4 style="margin-bottom: 0.5rem;">Independent Perspective</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">We provide unbiased reviews, free from institutional pressures, focusing solely on what is best for the patient's specific case.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem; display: block;">Cancer Clarity MD.</div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-bottom: 1.5rem; max-width: 250px;">Independent Oncology Advisory</p>
+                    <a href="mailto:contact@cancerclaritymd.com" style="color: var(--teal); text-decoration: none; font-size: 0.875rem;">contact@cancerclaritymd.com</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="consultation-options.html">Consultation Options</a></li>
+                        <li><a href="conditions.html">Conditions Covered</a></li>
+                        <li><a href="#">For Physicians</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="physician.html">Our Physicians</a></li>
+                        <li><a href="#">Patient Education</a></li>
+                        <li><a href="#">Screening Guidelines</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Action</h4>
+                    <a href="#" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Start Case Review</a>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="apple" style="width: 14px; height: 14px; margin-right: 4px;"></i> iOS</a>
+                        <a href="#" class="btn btn-outline" style="flex: 1; padding: 0.5rem; border-color: rgba(255,255,255,0.2); color: white; font-size: 0.75rem;"><i data-lucide="play" style="width: 14px; height: 14px; margin-right: 4px;"></i> Android</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cancer Clarity MD. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">HIPAA Notice</a>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                Cancer Clarity MD provides independent medical advisory services. Our reviews are for informational and educational purposes and do not establish a primary doctor-patient relationship. We do not prescribe medication or provide direct treatment. Always consult with your primary oncology team before making changes to your treatment plan.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
