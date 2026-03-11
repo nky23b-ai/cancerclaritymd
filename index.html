@@ -464,54 +464,86 @@ section{padding:5.5rem 3rem}
 .lang-sub{font-size:.88rem;color:var(--muted);margin-top:.5rem}
 
 /* ─── PRICING ─── */
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
-.price-card{
-  border-radius:12px;padding:2.5rem;
-  border:2px solid var(--border);
-  transition:border-color .2s,box-shadow .2s;position:relative;
-}
-.price-card:hover{border-color:var(--teal);box-shadow:0 8px 28px rgba(26,170,155,.12)}
-.price-card.featured{border-color:var(--teal);box-shadow:0 8px 28px rgba(26,170,155,.12)}
-.price-badge{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--teal);color:#fff;
-  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  padding:.3rem 1rem;border-radius:20px;white-space:nowrap;
-}
-.price-card-icon{font-size:1.6rem;margin-bottom:.75rem}
-.price-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
-.price-card-desc{font-size:.85rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.6}
-.price-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem}
-.price-list li{display:flex;align-items:center;gap:.65rem;font-size:.85rem;color:var(--text)}
-.price-amount{
-  font-family:'Playfair Display',serif;
-  font-size:2.8rem;font-weight:700;color:var(--navy);
-  line-height:1;margin-bottom:1.25rem;
-}
-.price-amount span{font-size:1.1rem;font-weight:400;color:var(--muted)}
-.price-btn{
-  display:block;text-align:center;
-  background:var(--teal);color:#fff;
-  padding:.8rem;border-radius:6px;
-  font-size:.85rem;font-weight:700;letter-spacing:.05em;
-  text-decoration:none;transition:background .2s;
-}
-.price-btn:hover{background:var(--teal2)}
-.price-btn.outline{background:transparent;color:var(--teal);border:2px solid var(--teal)}
-.price-btn.outline:hover{background:var(--teal);color:#fff}
-.addons{
-  background:var(--off);border-radius:10px;padding:1.5rem 2rem;
-  display:flex;align-items:center;flex-wrap:wrap;gap:1rem;
-}
-.addon-label{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-right:.5rem}
-.addon-item{
-  display:flex;align-items:center;gap:.5rem;
-  background:#fff;border:1px solid var(--border);
-  border-radius:6px;padding:.4rem .9rem;
-  font-size:.82rem;color:var(--navy);
-}
-.addon-item strong{color:var(--teal)}
-.addon-plus{color:var(--muted);font-size:.8rem}
+ <section id="pricing">
+  <div class="section-label">Consultation Services</div>
+
+  <p style="text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:2rem;">
+    Fees reflect the complexity and time invested in each case. International patients are welcome and fees begin at $250.
+  </p>
+
+  <div class="pricing-grid">
+
+    <div class="price-card featured">
+      <div class="price-badge">Most Requested</div>
+      <div class="price-card-icon">📋</div>
+      <h3>Written Specialist Review</h3>
+      <div class="price-amount">$500 <span>starting at</span></div>
+      <p class="price-card-desc">A structured written second opinion from a U.S. board-certified hematologist and oncologist. Includes review of your records, pathology, imaging, and a detailed clinical summary with treatment recommendations.</p>
+      <a href="#intake" class="price-btn">Start Your Case</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon">🎥</div>
+      <h3>Written Review + Physician Consultation</h3>
+      <div class="price-amount">&nbsp;</div>
+      <p class="price-card-desc">Everything in the written review, plus a direct video consultation with the specialist who reviewed your case. Time to ask questions, discuss options, and get clarity on next steps.</p>
+      <a href="#intake" class="price-btn outline">Start Your Case</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon">🔬</div>
+      <h3>Comprehensive Case Review</h3>
+      <div class="price-amount">&nbsp;</div>
+      <p class="price-card-desc">For complex or advanced cases requiring in-depth analysis across multiple treatment lines, clinical trial eligibility, or second-line therapy strategy. Includes written report and extended consultation.</p>
+      <a href="#intake" class="price-btn outline">Start Your Case</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon">🤝</div>
+      <h3>Ongoing Advisory</h3>
+      <div class="price-amount"><span>Contact us</span></div>
+      <p class="price-card-desc">For patients and families who want continued guidance through treatment. Scope and pricing discussed directly.</p>
+      <a href="#intake" class="price-btn outline">Get in Touch</a>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem;">
+    Submit your case through our intake form and we will be in touch to discuss next steps.
+  </p>
+
+</section>
+   <div class="addons">
+  <span class="addon-label">Additional Services</span>
+
+  <div class="addon-item">
+    <span>Expedited Review</span>
+    <strong>Available on Request</strong>
+  </div>
+
+  <div class="addon-plus">+</div>
+
+  <div class="addon-item">
+    <span>Follow-Up Consult</span>
+    <strong>Available on Request</strong>
+  </div>
+
+  <div class="addon-plus">+</div>
+
+  <div class="addon-item">
+    <span>Extended Q&amp;A Window</span>
+    <strong>Available on Request</strong>
+  </div>
+
+  <div class="addon-plus">+</div>
+
+  <div class="addon-item">
+    <span>Additional Record Review</span>
+    <strong>Available on Request</strong>
+  </div>
+
+</div>
+   
 
 /* ─── CASE INTAKE FORM ─── */
 .form-bg{background:var(--navy)}
